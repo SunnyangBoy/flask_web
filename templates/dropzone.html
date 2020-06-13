@@ -1,0 +1,14 @@
+{% extends 'base2.html' %}
+
+{% block title %}上传图片{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    {{ dropzone.load() }}
+    {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 300px;') }}
+{% endblock %}
+
+{% block content %}
+<h1>Upload Your Images</h1>
+{{ dropzone.create(action_view='dropzone_upload') }}
+{% endblock %}

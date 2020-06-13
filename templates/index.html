@@ -1,0 +1,28 @@
+{% extends 'base2.html' %}
+
+{% block title %}用户主界面{% endblock %}
+
+{% block script %}
+<meta http-equiv="refresh" content="10">
+{% endblock %}
+
+{% block content %}
+    <h1>Your Images</h1>
+    <h4>{{ images|length }} images:</h4>
+    {% for image in images %}
+        <div>
+            <img src="{{ url_for('get_image', filename=image.img_name) }}" width="850" height="400">
+            <p>{{ image.img_name }}</p>
+            <p>{{ image.result_flag }}</p>
+            <p>
+                <a class="btn btn-primary btn-dark" href="{{ url_for('show_img', image_id=image.id) }}">Result</a>
+            </p>
+            <p>
+                <form method="post" action="{{ url_for('delete_image', image_id=image.id) }}">
+                    {{ form.csrf_token }}
+                    {{ form.submit(class='btn btn-primary btn-dark') }}
+                </form>
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}

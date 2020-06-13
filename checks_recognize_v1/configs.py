@@ -1,0 +1,7 @@
+rotate_model = '/home/flask_web/static/pths/rotated.pth'
+detect_model_one = '/home/flask_web/static/pths/model_1_epoch_20.pth'
+detect_model_two = '/home/flask_web/static/pths/model_2_epoch_20.pth'
+detect_model_three = '/home/flask_web/static/pths/model_3_epoch_20.pth'
+stamp_model_one = '/home/flask_web/static/pths/model_1_seal_20.pth'
+stamp_model_two = '/home/flask_web/static/pths/model_2_seal_20.pth'
+stamp_model_three = '/home/flask_web/static/pths/model_3_seal_20.pth'

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="毕业设计">
+        <meta name="author" content="朱振洋">
+        <title>{% block title %}在线支票识别{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        {% block script %}{% endblock %}
+    {% endblock %}
+</head>
+
+
+<body>
+<!-- Navigation -->
+    {% block nav %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('signin') }}">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %}
+
+    <!-- Header - set the background image for the header in the line below -->
+    <header >
+        <img class="img-fluid d-block mx-auto" src="./bankcheck.png" alt="">
+    </header>
+
+    <!-- Flash message -->
+    {% for message in get_flashed_messages() %}
+        <div class="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <!-- Content section -->
+    <section class="py-5">  <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">   <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; 朱振洋 2020</p>
+    </div>  <!-- /.container -->
+    </footer>
+</body>
+
+
+</html>

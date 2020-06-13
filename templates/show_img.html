@@ -1,0 +1,28 @@
+{% extends 'base2.html' %}
+{% from 'macros.html' import form_field %}
+
+{% block title %}展示结果{% endblock %}
+
+{% block content %}
+{% if filename != 'None' %}
+    <p>
+        <h1>Show image</h1>
+        <a class="btn btn-primary btn-dark" href="{{ url_for('downloader', filename=filename[:-4] + '.txt') }}">Download Result</a>
+    </p>
+    <img src="{{ url_for('get_image', filename=filename[:-4] + '_result.jpg') }}" width="850" height="400">
+    <table frame="hsides">
+        <tr>
+          <th>属性</th>
+          <th>预测值</th>
+        </tr>
+        {% for result in results %}
+            <tr>
+                <td>{{ result[0] }}</td>
+                <td>{{ result[1] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <h3>Please Wait the results to be done!</h3>
+{% endif %}
+{% endblock %}
